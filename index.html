@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>git-Links</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        body {
+            padding-top: 70px;
+        }
+        .search-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        #search-bar {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            padding-right: 40px;
+        }
+        #voice-search-btn {
+            position: absolute;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+        #voice-search-btn.listening {
+            color: #dc3545;
+        }
+        #links-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .section-header {
+            background-color: #e9ecef;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-bar-container">
+        <div class="container">
+            <div class="search-wrapper">
+                <input type="text" id="search-bar" class="form-control" placeholder="Search links...">
+                <button id="voice-search-btn" title="Search by voice">
+                    🎤
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <table id="links-table" class="table">
+            <tbody>
+                <!-- Links will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const links = [
+
+                   
+            {
+                category: "DEBAKA'S GitHub Links", links: [
+                                      { url: "https://github.com/debakatimilsina/links.git.io/blob/main/index.html", title: "EDITABLE LINK", editUrl: "https://github.com/debakatimilsina/links.git.io/blob/main/index.html", description: "Edit your link from here" },
+                    { url: "https://github.com/ShivaPrasadAcharya?tab=repositories", title: "REPOS", editUrl: "https://github.com/ShivaPrasadAcharya?tab=repositories", description: "Shiva's Repos" },
+                    
+                                      { url: "https://debakatimilsina.github.io/photovideos.git.io/", title: "(Photo & Videos)", editUrl: "https://github.com/debakatimilsina/syllablesforbarexam.git.io/blob/main/index.html", description: "photovideos backup" },
+                    { url: "https://debakatimilsina.github.io/srinajirnikunja.git.io/", title: "SRI-NAJIRNIKUNJA FULL(30TH BAR)", editUrl: "https://github.com/debakatimilsina/srinajirnikunja.git.io/blob/main/index.html", description: "Content can be copied, printed and downloaded" },
+{ url: "https://debakatimilsina.github.io/debakanotes.git.io/", title: "DEBAKA-SMART NOTES",    editUrl: "https://github.com/debakatimilsina/debakanotes.git.io/blob/main/index.html",   description: "Smart notes app for storing notes, quick reference, personal notes, study materials, important topics",},
+                    {
+  url: "https://shivaprasadacharya.github.io/idmanager.git.io/",  title: "ID MANAGER - DIGITAL ID VAULT",  editUrl: "https://github.com/ShivaPrasadAcharya/idmanager.git.io/blob/main/index.html",
+  description: "Digital ID vault for securely storing and managing identification documents, cards, and personal credentials, ID", },
+                    { url: "https://debakatimilsina.github.io/syllablesforbarexam.git.io/", title: "(31TH BAR SYLLABLES & MCQ)", editUrl: "https://github.com/debakatimilsina/syllablesforbarexam.git.io/blob/main/index.html", description: "31st bar exam syllables & sample mcq's" },
+                    { url: "https://debakatimilsina.github.io/srinajirnikunja.git.io/", title: "SRI-NAJIRNIKUNJA FULL(30TH BAR)", editUrl: "https://github.com/debakatimilsina/srinajirnikunja.git.io/blob/main/index.html", description: "Content can be copied, printed and downloaded" },
+                    { url: "https://debakatimilsina.github.io/syllablesforbarexam.git.io/", title: "(31TH BAR SYLLABLES & MCQ)", editUrl: "https://github.com/debakatimilsina/syllablesforbarexam.git.io/blob/main/index.html", description: "31st bar exam syllables & sample mcq's" },
+                    { url: "https://debakatimilsina.github.io/modelmcqfor32barexam.git.io/", title: "MCQ FOR 32 BAR EXAM", editUrl: "https://github.com/debakatimilsina/modelmcqfor32barexam.git.io/edit/main/index.html", description: "Advocate licence exam-32nd, Najirnikunja" },
+                    { url: "https://debakatimilsina.github.io/suvakamana.git.io/", title: "INNOVATIVE LEGAL SERVICE", editUrl: "https://github.com/debakatimilsina/suvakamana.git.io/blob/main/index.html", description: "Festive Greetings and Wishes, Dashain, Suvakamana" }
+                ]
+            },
+            {
+                category: "Other Links", links: [
+                    { url: "https://docs.google.com/document/d/1wz6K4dlLiVI5TvpkFfgn6K1OV_CC5X2fBA7t2qjkFzI/edit?usp=share_link", title: "LAWEXAM.OBJ", editUrl: "", description: "" },
+                    { url: "https://docs.google.com/document/d/1y9b9xF46g50KcybqNNxGqBxCD08E_9P_HYPlIAy67ec/edit?usp=share_link", title: "PRAGYADOC", editUrl: "", description: "Source:google drive:Collection of Najir etc." },
+                    { url: "https://drive.google.com/file/d/10h63tVKyoclUvv3Hp5SbS2l2TruUTm-3/view?usp=share_link", title: "COLORPHOTO.JPG", editUrl: "", description: "Source:google drive" },
+                    { url: "https://drive.google.com/file/d/1kNzLM-frttwAHsScgtJrWZiSAkUXYTF5/view?usp=share_link", title: "BARCOUNCILSYLLABLES 31TH", editUrl: "", description: "Source: google drive:pdf file. syllables in nepali only." },
+                    { url: "https://drive.google.com/file/d/1kXqgJVf3CFxHswP7d1fzbfeUbJae2DZV/view?usp=share_link", title: "DEBAKACOLOR.JPG", editUrl: "", description: "Source: google drive" },
+                    { url: "https://drive.google.com/file/d/1NZQCIsbWOGT-iX1aJUBslUb4tv8PqwKE/view?usp=share_link", title: "LAILU", editUrl: "", description: "" },
+                    { url: "https://drive.google.com/file/d/1okZz_E0RjfRAqJ-_3mwkGXYzsJIhw8E2/view?usp=share_link", title: "PRAGYAPDF", editUrl: "", description: "" },
+                    { url: "https://drive.google.com/file/d/1PKCakwjNNF4PJUwKH6GIIHHvUXAAaH8p/view?usp=share_link", title: "B&WPHOTO.JPG", editUrl: "", description: "" }
+                ]
+            }
+        ];
+
+        function createLinkRow(link) {
+            return `
+                <tr>
+                    <td>
+                        <a href="${link.url}" target="_blank">${link.title}</a>
+                        ${link.editUrl ? `<a href="${link.editUrl}" target="_blank"> &#9999;</a>` : ''}
+                        ${link.description ? `<br>${link.description}` : ''}
+                    </td>
+                </tr>
+            `;
+        }
+
+        function renderLinks(linksToRender) {
+            let html = '';
+            linksToRender.forEach(category => {
+                html += `
+                    <tr class="section-header">
+                        <td>${category.category}</td>
+                    </tr>
+                `;
+                html += category.links.map(createLinkRow).join('');
+            });
+            linksTable.innerHTML = html;
+        }
+
+        function normalizeText(text) {
+            // Remove dots and convert to lowercase for comparison
+            return text.replace(/\./g, '').toLowerCase();
+        }
+
+        function filterLinks(query) {
+            const normalizedQuery = normalizeText(query);
+            return links.map(category => ({
+                category: category.category,
+                links: category.links.filter(link =>
+                    normalizeText(link.title).includes(normalizedQuery) ||
+                    normalizeText(link.description).includes(normalizedQuery)
+                )
+            })).filter(category => category.links.length > 0);
+        }
+
+        // Voice search functionality
+        const voiceSearchBtn = document.getElementById('voice-search-btn');
+        const searchBar = document.getElementById('search-bar');
+        const linksTable = document.getElementById('links-table').getElementsByTagName('tbody')[0];
+
+        let recognition = null;
+        try {
+            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                searchBar.value = transcript;
+                searchBar.dispatchEvent(new Event('input'));
+                voiceSearchBtn.classList.remove('listening');
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                voiceSearchBtn.classList.remove('listening');
+            };
+
+            recognition.onend = () => {
+                voiceSearchBtn.classList.remove('listening');
+            };
+
+            voiceSearchBtn.addEventListener('click', () => {
+                try {
+                    if (voiceSearchBtn.classList.contains('listening')) {
+                        recognition.stop();
+                        voiceSearchBtn.classList.remove('listening');
+                    } else {
+                        recognition.start();
+                        voiceSearchBtn.classList.add('listening');
+                    }
+                } catch (error) {
+                    console.error('Speech recognition error:', error);
+                    alert('Speech recognition is not supported in your browser.');
+                }
+            });
+        } catch (error) {
+            console.error('Speech recognition is not supported:', error);
+            voiceSearchBtn.style.display = 'none';
+        }
+
+        searchBar.addEventListener('input', function() {
+            const query = this.value.trim();
+            const filteredLinks = filterLinks(query);
+            renderLinks(filteredLinks);
+        });
+
+        // Initial render
+        renderLinks(links);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
